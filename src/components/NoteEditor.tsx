@@ -2,6 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { FileText } from "lucide-react";
 
 interface Note {
   id: string;
@@ -27,21 +28,11 @@ function NoteEditor({
 }: NoteEditorProps) {
   if (!activeNote) {
     return (
-      <div className="flex items-center justify-center h-full">
-        <svg
-          className="w-24 h-24 text-gray-500"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 17v-2a4 4 0 014-4h4m0 0H7m4 0v8m0-8a4 4 0 010 8h10"
-          />
-        </svg>
+      <div className="flex items-center justify-center h-screen w-full text-gray-500">
+        <div className="inline-flex flex-col items-center">
+          <FileText size={100} className="mb-4" />
+          <p className="text-xl">Select a note or make a new one</p>
+        </div>
       </div>
     );
   }
